@@ -1,0 +1,31 @@
+quarkus:
+   log:
+      level:  INFO
+      console:
+         enable: true
+         color: false
+      category:
+         "com.example.quarkus":
+            level: DEBUG
+      
+   http:
+      port: 8080
+      cors: true
+      
+   smallrye-jwt:
+      enabled: true
+
+smallrye:
+   jwt:
+      path:
+         groups: cognito:groups
+
+mp:
+   jwt:
+      verify:
+         publickey:
+            location: https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_FooBarFoo.well-known/jwks.json
+         issuer: https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_FooBarFoo
+
+reproducer:
+   profileName: John
